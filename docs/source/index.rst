@@ -10,7 +10,10 @@ Welcome to Jenkins Sample Project's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+.. toctree::
+   :maxdepth: 2
 
+   example
 
 Indices and tables
 ==================
