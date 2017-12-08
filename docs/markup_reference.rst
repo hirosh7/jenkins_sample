@@ -45,3 +45,29 @@ Inline Markup
 Words can have *emphasis in italics* or be **bold** and you can define
 code samples with back quotes, like when you talk about a command: ``sudo``
 gives you super user powers!
+
+.. code-block:: python
+   :emphasize-lines: 3,5
+
+   def some_function():
+       interesting = False
+       print 'This line is highlighted.'
+       print 'This one is not...'
+       print '...but this one is.'
+
+.. code-block:: bash
+   :linenos:
+
+   ls -lsa
+   docker -x file_name
+
+.. code-block:: bash
+
+   ls -lsa
+   docker -x file_name
+
+``sudo``
+
+*sudo*
+
+**sudo**
