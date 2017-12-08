@@ -4,14 +4,14 @@
    contain the root `toctree` directive.
 
 Continuous Integration Notes
-========================================================
+============================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   jenkins
-
+   general_setup
+   markup_reference
 
 
 Indices and tables
