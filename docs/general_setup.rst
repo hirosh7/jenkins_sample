@@ -29,6 +29,8 @@ You can also connect to the newly created project at `readthedocs.org <https://r
 docs auto-build and available for a public audience in the cloud. If you decide to do this, you have to have
 your project repo on Github **public**.
 
+**Note:** Doc changes need to be merged to the master branch to be picked up by the autobuilding tools.
+
 Jenkins CI Server
 -----------------
 * `Guided Tour - Getting Started <https://jenkins.io/doc/pipeline/tour/getting-started/>`_
