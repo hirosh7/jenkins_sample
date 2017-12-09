@@ -71,3 +71,26 @@ gives you super user powers!
 *sudo*
 
 **sudo**
+
+.. tip:: This is a note admonition.
+   This is the second line of the first paragraph.
+
+The following admonition directives have been implemented:
+
+    * attention
+    * caution
+    * danger
+    * error
+    * hint
+    * important
+    * note
+    * tip
+    * warning
+
+.. figure:: images/lead_960.jpg
+   :scale: 50 %
+   :alt: map to buried treasure
+   :align: center
+
+   This is the caption of the figure (a simple paragraph).
+
