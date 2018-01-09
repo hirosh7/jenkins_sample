@@ -88,9 +88,6 @@ The following admonition directives have been implemented:
     * warning
 
 .. figure:: images/ballotBoxBot.jpg
-   :scale: 55%
-   :alt: map to buried treasure
-   :align: center
+    :figclass: align-center
 
-   This is the caption of the figure (a simple paragraph).
-
+    figure are like images but with a caption
