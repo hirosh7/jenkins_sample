@@ -18,6 +18,9 @@ the theme in the ``conf.py`` file to use the **sphinx-rtd-theme** like so:
 
 .. code-block:: python
 
+   # If you don't have Sphinx installed
+   pip install sphinx
+
    # If you don't have the theme installed
    pip install sphinx-rdt-theme
 

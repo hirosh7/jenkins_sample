@@ -87,8 +87,8 @@ The following admonition directives have been implemented:
     * tip
     * warning
 
-.. figure:: images/lead_960.jpg
-   :scale: 50 %
+.. figure:: images/ballotBoxBot.jpg
+   :scale: 55%
    :alt: map to buried treasure
    :align: center
 
