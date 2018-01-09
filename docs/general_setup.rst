@@ -10,7 +10,7 @@ helpful to get a quick start:
 
   * `How to Install The ReadTheDocs Theme <https://github.com/rtfd/sphinx_rtd_theme>`_
 
-* `Restructured Text Quick Reference <docutils.sourceforge.net/docs/user/rst/quickref.html>`_
+* `Restructured Text Quick Reference <https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html>`_
 
 In general, the idea is to create your project in Pycharm and create a **'docs'** folder in the project folder.
 In a shell window, cd to the 'docs' folder, run the ``sphinx-quickstart`` command to get the skeleton files in place and update
