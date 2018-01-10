@@ -90,6 +90,46 @@ If all goes well, when you browse there you'll see the Gerrit Server screen.
 
 Interacting with the Kubernetes Cluster
 ---------------------------------------
-drop knowledge here
+Once your cluster is set up, you'll want to be able to interact with the VMs/containers
+providing your service. Information in the section is pulled from the `Kubernetes.io
+Tutorials <https://kubernetes.io/docs/tutorials/kubernetes-basics/explore-intro/>`_
+
+Pods Overview
+-------------
+A Pod is a group of one or more application containers (such as Docker or rkt) and
+includes shared storage (volumes), IP address and information about how to run them.
+
+Pods are the atomic unit on the Kubernetes platform. When we create a Deployment on
+Kubernetes, that Deployment creates Pods with containers inside them
+(as opposed to creating containers directly). Each Pod is tied to the Node where
+it is scheduled, and remains there until termination (according to restart policy)
+or deletion. In case of a Node failure, identical Pods are scheduled on other
+available Nodes in the cluster.
+
+.. image:: images/pods_overview.png
+   :align: center
+
+Nodes Overview
+--------------
+.. image:: images/node_overview.png
+   :align: center
+
+Here are a few helpful commands:
+
+.. code-block:: bash
+   :linenos:
+
+   # List Resources
+   > kubectl get
+
+   # Show detailed information about a resource
+   > kubectl describe
+
+   # Print the logs from a container in a pod
+   > kubectl logs
+
+   # Execute a command on a container in a pod
+   > kubectl exec
+
 
 
