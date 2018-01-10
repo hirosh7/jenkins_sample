@@ -11,6 +11,8 @@ Continuous Integration Notes
    :caption: Contents:
 
    general_setup
+   gc_docker_setup
+   jenkins_ci_setup
    markup_reference
 
 

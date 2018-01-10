@@ -88,6 +88,6 @@ The following admonition directives have been implemented:
     * warning
 
 .. figure:: images/ballotBoxBot.jpg
-    :figclass: align-center
+   :align: center
 
-    figure are like images but with a caption
+   figure are like images but with a caption

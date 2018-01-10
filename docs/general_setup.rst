@@ -34,7 +34,5 @@ your project repo on Github **public**.
 
 **Note:** Doc changes need to be merged to the master branch to be picked up by the autobuilding tools.
 
-Jenkins CI Server
------------------
-* `Guided Tour - Getting Started <https://jenkins.io/doc/pipeline/tour/getting-started/>`_
+
 
