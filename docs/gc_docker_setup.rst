@@ -72,10 +72,24 @@ If all goes well, when you browse there you'll see the Gerrit Server screen.
 .. image:: images/gerrit_docker.png
    :align: center
 
-.. tip:: The 'kubectl run' command use the following '--image=gerritcodereview/gerrit'.
+.. tip:: The > **kubectl run** command uses the following **--image=gerritcodereview/gerrit**.
    This image name was pulled from the `GerritCodeReview/docker-gerrit Github repo
    <https://github.com/GerritCodeReview/docker-gerrit>`_
 
-Pick up here on deleting cluster or changing size to zero to save $$
+.. warning::
+   If this work is temporary, once you've made your observations, follow the instructions
+   in the `Google Cloud Platform Kubernetes Quick Start Guide
+   <https://cloud.google.com/kubernetes-engine/docs/quickstart>`_ to shutdown and delete
+   your cluster. Day to day load balancing charges can add up.
+.. tip::
+   If you want to resume your work without going back through the set up, you can change
+   your cluster size to zero which effectively shuts it down (though you may still get
+   load balancing charges - check to be sure). To resume again, resize your cluster back
+   to its original node size. Use this command:
+   > **gclould container clusters resize $CLUSTER_NAME --size=0**
+
+Interacting with the Kubernetes Cluster
+---------------------------------------
+drop knowledge here
 
 
