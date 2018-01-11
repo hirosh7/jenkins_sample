@@ -29,10 +29,12 @@ the theme in the ``conf.py`` file to use the **sphinx-rtd-theme** like so:
    html_theme = "sphinx_rtd_theme"
 
 You can also connect to the newly created project at `readthedocs.org <https://readthedocs.org>`_ and have the
-docs auto-build and available for a public audience in the cloud. If you decide to do this, you have to have
-your project repo on Github **public**.
+docs auto-built and available to public audience from the cloud. If you decide to do
+this, you have to have your project repo on Github set to **public**.
 
-**Note:** Doc changes need to be merged to the master branch to be picked up by the autobuilding tools.
+.. important::
+   Doc changes need to be merged to the master branch to be picked up by the
+   auto-building tools.
 
 
 

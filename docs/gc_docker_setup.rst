@@ -85,14 +85,16 @@ If all goes well, when you browse there you'll see the Gerrit Server screen.
    If you want to resume your work without going back through the set up, you can change
    your cluster size to zero which effectively shuts it down (though you may still get
    load balancing charges - check to be sure). To resume again, resize your cluster back
-   to its original node size. Use this command:
-   > **gclould container clusters resize $CLUSTER_NAME --size=0**
+   to its original node size. Use these commands:
+   > **gcloud config set compute/zone <zone>**
+   > **gcloud container clusters resize $CLUSTER_NAME --size=0**
 
 Interacting with the Kubernetes Cluster
 ---------------------------------------
-Once your cluster is set up, you'll want to be able to interact with the VMs/containers
-providing your service. Information in the section is pulled from the `Kubernetes.io
-Tutorials <https://kubernetes.io/docs/tutorials/kubernetes-basics/explore-intro/>`_
+Once your cluster is set up, you'll want to be able to interact with the
+nodes(VMs)/containers providing your service. Information in the section is
+pulled from the`Kubernetes.io Tutorials
+<https://kubernetes.io/docs/tutorials/kubernetes-basics/explore-intro/>`_
 
 Pods Overview
 -------------
@@ -111,25 +113,53 @@ available Nodes in the cluster.
 
 Nodes Overview
 --------------
+A Pod always runs on a **Node**. A Node is a worker machine in Kubernetes and may be
+either a virtual or a physical machine, depending on the cluster. Each Node is managed
+by the Master. A Node can have multiple pods, and the Kubernetes master automatically
+handles scheduling the pods across the Nodes in the cluster. The Master's automatic
+scheduling takes into account the available resources on each Node.
+
+Every Kubernetes Node runs at least:
+
+    * **Kubelet** - a process responsible for communication between the Kubernetes Master
+      and the Nodes; it manages the Pods and the containers running on a machine
+
+    * **A container runtime** (like Docker, rkt) responsible for pulling the container
+      image from a registry, unpacking the container, and running the application.
+
 .. image:: images/node_overview.png
    :align: center
 
-Here are a few helpful commands:
+Helpful Commands
+----------------
 
 .. code-block:: bash
-   :linenos:
 
    # List Resources
-   > kubectl get
+   > kubectl get [pods | service]
 
    # Show detailed information about a resource
-   > kubectl describe
+   > kubectl describe [pods| nodes| deployments]
 
    # Print the logs from a container in a pod
+   # No need to specify the container name if only one container in the pod
    > kubectl logs
 
    # Execute a command on a container in a pod
-   > kubectl exec
+   > kubectl exec <pod_name> [env]
+   > kubectl exec -ti <pod_name> bash # open a bash shell in the pod
+
+   # Grab a pod name and save it env var $POD_NAME
+   > export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}'); echo Name of the Pod: $POD_NAME
+
+   # Start a pod proxy access to interact with a pod
+   # Run this in a separate terminal window
+   > kubectl proxy
+
+   # To see the output of a pod application
+   # URL is the route to the API of the pod
+   > curl **http://localhost:8001/api/v1/proxy/namespaces/default/pods/$POD_NAME/**
+
 
 
 
