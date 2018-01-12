@@ -97,7 +97,7 @@ pulled from the`Kubernetes.io Tutorials
 <https://kubernetes.io/docs/tutorials/kubernetes-basics/explore-intro/>`_
 
 Kubernetes Cluster
-------------------
+~~~~~~~~~~~~~~~~~~
 The Master is responsible for managing the cluster. The master coordinates all
 activities in your cluster, such as scheduling applications, maintaining
 applications' desired state, scaling applications, and rolling out new updates.
@@ -118,7 +118,7 @@ the cluster.
    :align: center
 
 Deployments
------------
+~~~~~~~~~~~
 Once you have a running Kubernetes cluster, you can deploy your containerized
 applications on top of it. To do so, you create a Kubernetes Deployment
 configuration. The Deployment instructs Kubernetes how to create and update
@@ -134,7 +134,7 @@ mechanism to address machine failure or maintenance.
    :align: center
 
 Pods Overview
--------------
+~~~~~~~~~~~~~
 A Pod is a group of one or more application containers (such as Docker or rkt) and
 includes shared storage (volumes), IP address and information about how to run them.
 
@@ -154,7 +154,7 @@ through an API endpoint to communicate with our application.
    :align: center
 
 Nodes Overview
---------------
+~~~~~~~~~~~~~~
 A Pod always runs on a **Node**. A Node is a worker machine in Kubernetes and may be
 either a virtual or a physical machine, depending on the cluster. Each Node is managed
 by the Master. A Node can have multiple pods, and the Kubernetes master automatically
@@ -174,7 +174,7 @@ Every Kubernetes Node runs at least:
    :scale: 50 %
 
 Service and Labels
-------------------
+~~~~~~~~~~~~~~~~~~
 
 .. image:: images/service_labels.png
    :align: center
@@ -202,7 +202,7 @@ modified at any time. Let's expose our application now using a Service and
 apply some labels.
 
 Helpful Commands
-----------------
+~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
 
