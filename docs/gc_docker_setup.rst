@@ -96,6 +96,43 @@ nodes(VMs)/containers providing your service. Information in the section is
 pulled from the`Kubernetes.io Tutorials
 <https://kubernetes.io/docs/tutorials/kubernetes-basics/explore-intro/>`_
 
+Kubernetes Cluster
+------------------
+The Master is responsible for managing the cluster. The master coordinates all
+activities in your cluster, such as scheduling applications, maintaining
+applications' desired state, scaling applications, and rolling out new updates.
+
+A node is a VM or a physical computer that serves as a worker machine in a Kubernetes
+cluster. Each node has a Kubelet, which is an agent for managing the node and
+communicating with the Kubernetes master. The node should also have tools for
+handling container operations, such as Docker or rkt. A Kubernetes cluster that
+handles production traffic should have a minimum of three nodes.
+
+When you deploy applications on Kubernetes, you tell the master to start the
+application containers. The master schedules the containers to run on the cluster's
+nodes. The nodes communicate with the master using the Kubernetes API, which the
+master exposes. End users can also use the Kubernetes API directly to interact with
+the cluster.
+
+.. image:: images/kube_cluster.png
+   :align: center
+
+Deployments
+-----------
+Once you have a running Kubernetes cluster, you can deploy your containerized
+applications on top of it. To do so, you create a Kubernetes Deployment
+configuration. The Deployment instructs Kubernetes how to create and update
+instances of your application. Once you've created a Deployment, the Kubernetes
+master schedules mentioned application instances onto individual Nodes in the cluster.
+
+Once the application instances are created, a Kubernetes Deployment Controller
+continuously monitors those instances. If the Node hosting an instance goes down
+or is deleted, the Deployment controller replaces it. This provides a self-healing
+mechanism to address machine failure or maintenance.
+
+.. image:: images/kube_deployment.png
+   :align: center
+
 Pods Overview
 -------------
 A Pod is a group of one or more application containers (such as Docker or rkt) and
@@ -107,6 +144,11 @@ Kubernetes, that Deployment creates Pods with containers inside them
 it is scheduled, and remains there until termination (according to restart policy)
 or deletion. In case of a Node failure, identical Pods are scheduled on other
 available Nodes in the cluster.
+
+Pods that are running inside Kubernetes are running on a private, isolated network.
+By default they are visible from other pods and services within the same kubernetes
+cluster, but not outside that network. When we use **kubectl**, we're interacting
+through an API endpoint to communicate with our application.
 
 .. image:: images/pods_overview.png
    :align: center
@@ -129,14 +171,49 @@ Every Kubernetes Node runs at least:
 
 .. image:: images/node_overview.png
    :align: center
+   :scale: 50 %
+
+Service and Labels
+------------------
+
+.. image:: images/service_labels.png
+   :align: center
+   :scale: 50 %
+
+A Service routes traffic across a set of Pods. Services are the abstraction that allow
+pods to die and replicate in Kubernetes without impacting your application. Discovery
+and routing among dependent Pods (such as the frontend and backend components in an
+application) is handled by Kubernetes Services.
+
+Services match a set of Pods using labels and selectors, a grouping primitive that
+allows logical operation on objects in Kubernetes. Labels are key/value pairs attached
+to objects and can be used in any number of ways:
+
+    * Designate objects for development, test, and production
+    * Embed version tags
+    * Classify an object using tags
+
+.. image:: images/service_description.png
+   :align: center
+   :scale: 50 %
+
+Labels can be attached to objects at creation time or later on. They can be
+modified at any time. Let's expose our application now using a Service and
+apply some labels.
 
 Helpful Commands
 ----------------
 
 .. code-block:: bash
 
+   # List Cluster Details
+   > kubectl cluster-info
+
+   # Nodes nodes in the cluster
+   > kubectl get nodes
+
    # List Resources
-   > kubectl get [pods | service]
+   > kubectl get [pods | service | nodes | deployments]
 
    # Show detailed information about a resource
    > kubectl describe [pods| nodes| deployments]
