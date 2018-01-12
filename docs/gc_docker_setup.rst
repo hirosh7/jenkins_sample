@@ -89,8 +89,15 @@ If all goes well, when you browse there you'll see the Gerrit Server screen.
    > **gcloud config set compute/zone <zone>**
    > **gcloud container clusters resize $CLUSTER_NAME --size=0**
 
-Interacting with the Kubernetes Cluster
----------------------------------------
+Docker Overview
+---------------
+Since what's actually created within the Kubernetes cluster pods are docker containers,
+we should step back and get a better understanding of Docker.
+
+Drop knowledge here
+
+Interacting with Kubernetes
+---------------------------
 Once your cluster is set up, you'll want to be able to interact with the
 nodes(VMs)/containers providing your service. Information in the section is
 pulled from the`Kubernetes.io Tutorials
