@@ -141,9 +141,16 @@ Helpful Kubernetes Commands
 
    # Start a pod proxy access to interact with a pod
    # Run this in a separate terminal window
-   > kubectl proxy
+   > kubectl  proxy
 
    # To see the output of a pod application
    # URL is the route to the API of the pod
    > curl **http://localhost:8001/api/v1/proxy/namespaces/default/pods/$POD_NAME/**
+
+   # Clean up
+   # Execute this command
+   > kubectl delete service <service_name>
+   # then either delete the cluster via the GUI console or via:
+   > gcloud container clusters delete [CLUSTER_NAME]
+
 
