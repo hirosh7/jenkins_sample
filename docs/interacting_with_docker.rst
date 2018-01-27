@@ -35,8 +35,6 @@ drop knowledge here
   # Stop a detached container
   > docker stop <container_ID>
 
-
-
   # Remove docker container
   > docker rm <container_id>
 
@@ -46,6 +44,20 @@ drop knowledge here
 
   # Remove docker image
   > docker rmi <image_name>
+
+  # Build a docker image
+  # -t flag <optional_tag_name> (e.g. hirosh7/dogpark
+  > docker build -t <tag_name> .
+
+  # Login to Docker to prepare for a push
+  > docker login
+
+  # Push a new image to Docker Hub
+  > docker push <image_tag>
+
+  # Attach to a running container
+  > docker exec -i -t <container_ID> /bin/bash #by ID
+  > docker exec -i -t <container_name> /bin/bash #by Name
 
 
 

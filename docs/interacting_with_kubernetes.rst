@@ -122,8 +122,9 @@ Helpful Kubernetes Commands
    # Nodes nodes in the cluster
    > kubectl get nodes
 
-   # List Resources
-   > kubectl get [pods | service | nodes | deployments]
+   # List Resourceskubectl get pods -o wide
+   > kubectl get [pods | service | nodes | deployments] [-o wide]
+   > kubectl get pods -o wide # includes pod IP and host node
 
    # Show detailed information about a resource
    > kubectl describe [pods| nodes| deployments]
