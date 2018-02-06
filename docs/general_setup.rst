@@ -41,7 +41,7 @@ PyCharm Sample Run Config
 To build the sphinx documentation via PyCharm, here's a sample run config. It's pretty
 simple in that you only need to specify the directory where the sphinx files are
 (e.g. 'docs') and an output directory within that directory (e.g. 'output). If
-it doesn't exist, the command will create it automatically
+it doesn't exist, the command will create it automatically.
 
 .. image:: images/pycharm_sphinx_run_config.png
    :align: center
