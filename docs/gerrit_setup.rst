@@ -19,4 +19,17 @@ Click on that option to be taken to the login / registration page seen below.
 At the bottom of that screen, there is a button under **Register** called **New Account**.
 Click that to set up a new user account
 
-https://www.packtpub.com/books/content/using-gerrit-github
+Install the Gerrit Github Plugin
+--------------------------------
+For Gerrit <-> Github integration, you should install the Github plugin (provided it's
+not already installed). To do this, click on the Plugins tab option and click on the
+**Manage** sub-menu. A page will come up with a list of installed and installable
+plugins. Select the **Github** plugin and click **Install**
+
+.. image:: images/install_github_plugin.png
+   :align: center
+
+Details for integrating Gerrit and Github can be found `here.
+<https://www.packtpub.com/books/content/using-gerrit-github>`_
+
+
