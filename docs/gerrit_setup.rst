@@ -29,7 +29,23 @@ plugins. Select the **Github** plugin and click **Install**
 .. image:: images/install_github_plugin.png
    :align: center
 
+Integrating Gerrit and Github
+-----------------------------
 Details for integrating Gerrit and Github can be found `here.
 <https://www.packtpub.com/books/content/using-gerrit-github>`_
+
+.. tip:: In the linked reference above, you should start at the section,
+         **Register Gerrit as a GitHub OAuth application** since there's no need
+         to build and install the plugin as it has already been built and you
+         just installed it in the previous section.
+
+When you get to the **Running Gerrit init to configure GitHub OAuth** section, you'll
+need to do this in your **Gerrit docker container**.
+
+https://github.com/cloudbees/gerrit-workflow-demo
+https://gerrit.googlesource.com/plugins/github/+/master/README.md
+
+
+
 
 
