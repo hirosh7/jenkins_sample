@@ -50,10 +50,14 @@ this using Docker's `**Post Installation Steps for Linux** page
    $ sudo usermod -aG docker $USER
 
    # Log out and log back in so that your group membership is re-evaluated.
+   <ctrl><alt><delete>
 
    # Verify that you can run docker commands without sudo.
-
    $ docker run hello-world
+
+Worked like a charm! Docker installed.
+
+
 
 
 
