@@ -202,11 +202,14 @@ def main(argv=sys.argv[1:]):  # type: ignore
     args = parser.parse_args(argv)
 
     # -------------- KWJ Kludge Start -----------
+
+    # For some reason, the source and output directories are not parsed correctly
+    # nor is the source file list set correctly. This kludge corrects this situation
     args.outputdir = argv[4]
     args.sourcedir = argv[3]
-    import os
 
     # get list of *.rst files from source directory
+    import os
     for s_file in os.listdir(args.sourcedir):
         if s_file.find('.rst') != -1:
             args.filenames.append(s_file)
