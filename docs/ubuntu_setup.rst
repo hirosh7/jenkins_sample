@@ -57,6 +57,55 @@ this using Docker's `**Post Installation Steps for Linux** page
 
 Worked like a charm! Docker installed.
 
+Jenkins Installation
+--------------------
+Next we want to install the containerized version of Jenkins. For the initial install, I'll plan
+to install standard Jenkins vs. `the containerized Docker version
+<https://hub.docker.com/r/jenkins/jenkins/>`_ on Docker Hub. So I'm going by the instructions from
+`Jenkins.io <https://jenkins.io/doc/book/installing/#debian-ubuntu>`_ for Linux Debian/Ubuntu installs.
+
+Here are the details:
+
+.. code-block:: bash
+
+   wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+   sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+   sudo apt-get update
+   sudo apt-get install jenkins
+
+This package installation will:
+
+* Setup Jenkins as a daemon launched on start. See /etc/init.d/jenkins for more details.
+* Create a jenkins user to run this service.
+
+* Direct console log output to the file /var/log/jenkins/jenkins.log. Check this file if you are troubleshooting
+  Jenkins.
+* Populate /etc/default/jenkins with configuration parameters for the launch, e.g JENKINS_HOME
+* Set Jenkins to listen on port 8080. Access this port with your browser to start configuration.
+
+.. Warning::
+   If your /etc/init.d/jenkins file fails to start Jenkins, edit the /etc/default/jenkins to replace the
+   line ----HTTP_PORT=8080---- with ----HTTP_PORT=8081---- Here, "8081" was chosen but you can put another
+   port available.
+
+Configuring Jenkins
+~~~~~~~~~~~~~~~~~~~
+Now you can check out the running instance in your browser at **localhost:8080**
+
+The first time, you'll be presented with a setup window which will prompt you for a password.
+
+.. image:: images/jenkins_unlock.png
+   :align: center
+
+As indicated in the dialog, you can either find the initial password in the official Jenkins log file at
+**/var/log/jenkins/jenkins.log** or at the location mentioned in the dialog -
+**/var/lib/jenkins/secrets/initialAdminPassword**.
+
+Next you'll be prompted to install plugins. I selected the **Install Suggested Plugins** option. Next you'll be
+prompted to create the first admin account. Finally, you'll be at the main Jenkins page.
+
+Of course, this option didn't install the **BlueOcean plugin** so we need to do this next.
+
 
 
 
