@@ -14,6 +14,7 @@ Continuous Integration Notes
    gc_gerrit_setup
    interacting_with_docker
    interacting_with_kubernetes
+   gerrit_setup
    jenkins_ci_setup
    markup_reference
 
