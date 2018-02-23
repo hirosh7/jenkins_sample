@@ -11,8 +11,8 @@ SecOps Sandbox Notes
    :caption: Contents:
 
    general_setup
-   gc_gerrit_setup
    ubuntu_setup
+   gc_gerrit_setup
    interacting_with_docker
    interacting_with_kubernetes
    jenkins_ci_setup

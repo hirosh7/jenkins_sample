@@ -46,3 +46,12 @@ it doesn't exist, the command will create it automatically.
 .. image:: images/pycharm_sphinx_run_config.png
    :align: center
 
+Pycharm / Sphinx on Ubuntu 17.10
+--------------------------------
+I ran into an issue with the cmdline.py file installed with the snap Pycharm installer. I had to
+edit the file in order to get Sphinx to build properly. In addition to updating the official file
+installed in the project's virtual environment, I copied it to the **jenkins_sample** project
+in **kludge_files/cmdline.py**. Details are in the file delineated by **KWJ Kludge** comments.
+Additional details are in the change history.
+
+
