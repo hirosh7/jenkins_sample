@@ -104,7 +104,32 @@ As indicated in the dialog, you can either find the initial password in the offi
 Next you'll be prompted to install plugins. I selected the **Install Suggested Plugins** option. Next you'll be
 prompted to create the first admin account. Finally, you'll be at the main Jenkins page.
 
-Of course, this option didn't install the **BlueOcean plugin** so we need to do this next.
+Blue Ocean Plugin
+*****************
+Of course, this option didn't install the **BlueOcean plugin** so we need to do this next. Details for this are
+pulled from the Jenkins.io `Getting Started with Blue Ocean <https://jenkins.io/doc/book/blueocean/getting-started/>`_
+page.
+
+To install the Blue Ocean suite of plugins to your Jenkins instance:
+
+* If required, ensure you are logged in to Jenkins (as a user with the Admin permission).
+* From the Jenkins home page (i.e. the Dashboard of the Jenkins classic UI), click **Manage Jenkins** on
+  the left and then Manage Plugins in the center.
+* Click the Available tab and type blue ocean into the Filter text box, which filters the list of plugins
+  to those whose name and/or description contains the words **"blue"** and **"ocean"**.
+
+Select the Blue Ocean plugin’s check box near the top of the the Install column and then click either the
+Download now and install after restart button (recommended) or the Install without restart button at the the end of the page.
+
+.. Note::
+
+   There is no need to select the check boxes of the other plugins in this filtered list because the main Blue
+   Ocean plugin has other plugin dependencies (constituting the Blue Ocean suite of plugins) which will automatically
+   be selected and installed when you click one of these "Install" buttons.
+
+   If you chose the Install without restart button, you may need to restart Jenkins in order to gain full Blue Ocean
+   functionality.
+
 
 
 
