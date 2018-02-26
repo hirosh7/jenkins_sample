@@ -119,7 +119,8 @@ To install the Blue Ocean suite of plugins to your Jenkins instance:
   to those whose name and/or description contains the words **"blue"** and **"ocean"**.
 
 Select the Blue Ocean plugin’s check box near the top of the the Install column and then click either the
-Download now and install after restart button (recommended) or the Install without restart button at the the end of the page.
+Download now and install after restart button (recommended) or the Install without restart button at the the end of
+the page.
 
 .. Note::
 
