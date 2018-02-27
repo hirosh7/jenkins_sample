@@ -8,17 +8,26 @@ SecOps Sandbox Notes
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Setup
 
    general_setup
    ubuntu_setup
-   gc_gerrit_setup
+   gerrit_setup
+
+.. toctree::
+   :maxdepth: 2
+   :caption: References
+
    interacting_with_docker
    interacting_with_kubernetes
-   gerrit_setup
-   jenkins_ci_setup
    markup_reference
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Deprecated
+
+   gc_gerrit_setup
+   jenkins_ci_setup
 
 Indices and tables
 ==================
