@@ -13,6 +13,7 @@ SecOps Sandbox Notes
    general_setup
    ubuntu_setup
    gerrit_setup
+   postfix_setup
 
 .. toctree::
    :maxdepth: 2
