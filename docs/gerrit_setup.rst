@@ -59,5 +59,5 @@ commands:
    -f, --follow        Follow log output
    -t, --timestamps    Show timestamps
    --tail="all"        Number of lines to show from the end of the logs
-                       for each container.
+                       for each container
 
