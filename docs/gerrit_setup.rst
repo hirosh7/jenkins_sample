@@ -1,5 +1,6 @@
-Setting Up Dockerized Gerrit
-============================
+Gerrit Setup
+------------
+
 We'll plan to run Gerrit from a docker container. We'll try working with the
 `gerritcodereview/gerrit image <https://hub.docker.com/r/gerritcodereview/gerrit/>`_.
 The documentation suggests **docker-compose.yaml** file, but it should be updated to look like the following:
