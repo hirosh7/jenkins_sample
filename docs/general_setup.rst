@@ -71,7 +71,7 @@ On the host, run:
    # Replace 'status' above with 'start', 'restart', or 'stop'
    # to start, restart, or stop SSH service.
 
-   # to config the SSH server, e.g., listening port, root access, run command:
+   # If desired, to config the SSH server, e.g., listening port, root access, run command:
    sudo nano /etc/ssh/sshd_config
 
    # Then to get changes to take effect, restart the service
