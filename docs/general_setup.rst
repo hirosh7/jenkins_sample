@@ -54,4 +54,40 @@ installed in the project's virtual environment, I copied it to the **jenkins_sam
 in **kludge_files/cmdline.py**. Details are in the file delineated by **KWJ Kludge** comments.
 Additional details are in the change history.
 
+SSH Setup (local Network)
+-------------------------
+The following details are pulled from `Tips On Ubuntu
+<http://tipsonubuntu.com/2017/10/28/quick-tip-enable-ssh-service-ubuntu-17-10/>`_.
+
+On the host, run:
+
+.. code-block:: bash
+
+   sudo apt-get install openssh-server
+
+   # Once installed, the SSH service starts automatically. To check its status run
+   sudo service ssh status
+
+   # Replace 'status' above with 'start', 'restart', or 'stop'
+   # to start, restart, or stop SSH service.
+
+   # If desired, to config the SSH server, e.g., listening port, root access, run command:
+   sudo nano /etc/ssh/sshd_config
+
+   # Then to get changes to take effect, restart the service
+   sudo service ssh restart
+
+   # to find the host IP address to connect to from a client
+   # for the local network, look for an IP address that starts with 192.*
+   ifconfig
+
+.. important::
+   To make a successful connection, make sure both the host and client are on the
+   **same network** (e.g. same Wi-FI SSID or directly connected to the same router.
+
+
+
+
+
+
 

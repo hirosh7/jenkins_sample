@@ -11,8 +11,16 @@ SecOps Sandbox Notes
    :caption: Setup
 
    general_setup
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Ubuntu Sandbox Setup
+
    ubuntu_setup
+   docker_setup
+   jenkins_setup
    gerrit_setup
+   postfix_setup
 
 .. toctree::
    :maxdepth: 2
