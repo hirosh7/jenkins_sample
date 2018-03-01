@@ -1,8 +1,8 @@
 Mail Server Setup
-===============================
+=================
 To confirm proper email generation from all the various pipeline tools, it make sense
 to set up a local mail server so we can have local email addresses to use. For this we'll set up a LAN based email
-service based on Postfix. The details are provided at `GitHubGist <https://gist.github.com/raelgc/6031274>`_.
+service based on **Postfix**. The details are provided at `GitHubGist <https://gist.github.com/raelgc/6031274>`_.
 The instructions specify setting up a **localhost.com** email domain but since this is a Wakanda server, we'll set up a
 **wakanda.com** email domain instead.
 

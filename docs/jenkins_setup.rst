@@ -1,6 +1,6 @@
 
-Jenkins Installation
-====================
+Jenkins Setup
+=============
 
 Next we want to install the containerized version of Jenkins. For the initial install, I'll plan
 to install standard Jenkins vs. `the containerized Docker version

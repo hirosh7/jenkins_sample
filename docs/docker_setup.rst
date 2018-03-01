@@ -1,5 +1,5 @@
-Docker Installation
-===================
+Docker Setup
+============
 
 First step is to install Docker. I pulled the following details from this `GitHub Gist page
 <https://gist.github.com/levsthings/0a49bfe20b25eeadd61ff0e204f50088>`_.
