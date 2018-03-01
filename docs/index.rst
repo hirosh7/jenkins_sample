@@ -22,6 +22,7 @@ SecOps Sandbox Notes
    gerrit_setup
    postfix_setup
    findbugs_setup
+   maven_setup
 
 .. toctree::
    :maxdepth: 2
