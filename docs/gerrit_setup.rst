@@ -1,5 +1,5 @@
 Gerrit Setup
-------------
+============
 
 We'll plan to run Gerrit from a docker container. We'll try working with the
 `gerritcodereview/gerrit image <https://hub.docker.com/r/gerritcodereview/gerrit/>`_.
@@ -61,4 +61,12 @@ commands:
    -t, --timestamps    Show timestamps
    --tail="all"        Number of lines to show from the end of the logs
                        for each container
+
+Configuring Gerrit
+------------------
+
+Importing a project into Gerrit
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Text here
+
 

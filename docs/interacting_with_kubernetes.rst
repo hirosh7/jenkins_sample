@@ -1,5 +1,5 @@
-Interacting with Kubernetes
-===========================
+Kubernetes Overview
+===================
 Once your cluster is set up, you'll want to be able to interact with the
 nodes(VMs)/containers providing your service. Information in the section is
 pulled from the`Kubernetes.io Tutorials
