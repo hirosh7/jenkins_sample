@@ -23,6 +23,7 @@ SecOps Sandbox Notes
    postfix_setup
    findbugs_setup
    maven_setup
+   sonarqube_setup
 
 .. toctree::
    :maxdepth: 2
