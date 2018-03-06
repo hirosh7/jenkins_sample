@@ -62,6 +62,9 @@ drop knowledge here
   # Copy a file from a docker container to a host directory
   docker cp <container_name>:/foo /tmp/foo
 
+  # Create a new docker image from changes made to the current image
+  docker commit <container_id>  <image_name> (e.g. svendowideit/testimage:version3)
+
 
 
 
