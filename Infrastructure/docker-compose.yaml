@@ -11,6 +11,7 @@ services:
       - db-volume:/var/gerrit/db
       - index-volume:/var/gerrit/index
       - cache-volume:/var/gerrit/cache
+    container_name: Gerrit
   sonarqube:
       image: sonarqube
       ports:
@@ -24,6 +25,7 @@ services:
         - sonarqube_data:/opt/sonarqube/data
         - sonarqube_extensions:/opt/sonarqube/extensions
         - sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins
+      container_name: SonarQube
 
   db:
     image: postgres
@@ -37,6 +39,7 @@ services:
       # This needs explicit mapping due to
       # https://github.com/docker-library/postgres/blob/4e48e3228a30763913ece952c611e5e9b95c8759/Dockerfile.template#L52
       - postgresql_data:/var/lib/postgresql/data
+    container_name: PostgreSQL_DB
 
 networks:
   sonarnet:
