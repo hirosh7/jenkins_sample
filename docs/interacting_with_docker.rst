@@ -59,6 +59,10 @@ drop knowledge here
   > docker exec -i -t <container_ID> /bin/bash #by ID
   > docker exec -i -t <container_name> /bin/bash #by Name
 
+  # Copy a file from a docker container to a host directory
+  docker cp <container_name>:/foo /tmp/foo
+
+
 
 
 
