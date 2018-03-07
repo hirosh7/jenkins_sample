@@ -24,6 +24,7 @@ SecOps Sandbox Notes
    findbugs_setup
    maven_setup
    sonarqube_setup
+   tomcat_setup
 
 .. toctree::
    :maxdepth: 2
