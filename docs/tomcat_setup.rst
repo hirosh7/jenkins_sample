@@ -132,6 +132,15 @@ up to Docker Hub so that we can use it on any machine. Details for this section 
 
   **docker load --input secops_tomcat.tar**
 
+Now we've saved our update image and pushed a copy to Docker Hub. Next we want to integrate all of this into our
+**docker-compose.yaml** file. We'll need to specify the following parameters:
+
+* Ports: 8888:8080 (we'll access Tomcat on localhost:8888)
+* Container-name: Tomcat
+* Image: hirosh7/secops_tomcat
+
+
+
 
 
 

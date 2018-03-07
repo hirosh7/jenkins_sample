@@ -1,6 +1,7 @@
 version: "2"
 
 services:
+
   gerrit:
     image: gerritcodereview/gerrit
     ports:
@@ -12,6 +13,7 @@ services:
       - index-volume:/var/gerrit/index
       - cache-volume:/var/gerrit/cache
     container_name: Gerrit
+
   sonarqube:
       image: sonarqube
       ports:
@@ -26,6 +28,12 @@ services:
         - sonarqube_extensions:/opt/sonarqube/extensions
         - sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins
       container_name: SonarQube
+
+  tomcat:
+      image: hirosh7/secops_tomcat
+      ports:
+        - "8888:8080"
+      container_name: Tomcat
 
   db:
     image: postgres
