@@ -28,6 +28,12 @@ SecOps Sandbox Notes
 
 .. toctree::
    :maxdepth: 2
+   :caption: Configuration & Integration
+
+   jenkins_java
+
+.. toctree::
+   :maxdepth: 2
    :caption: References
 
    interacting_with_docker
