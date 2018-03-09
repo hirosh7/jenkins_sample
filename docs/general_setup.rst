@@ -85,6 +85,14 @@ On the host, run:
    To make a successful connection, make sure both the host and client are on the
    **same network** (e.g. same Wi-FI SSID or directly connected to the same router.
 
+IntelliJ Setup
+--------------
+For editing Java projects I decided to install the IntelliJ IDE.
+
+* Installation instructions are `here <https://www.jetbrains.com/help/idea/install-and-set-up-intellij-idea.html>`_
+* A quick **'first Java project in IntelliJ'** is `there
+  <https://www.jetbrains.com/help/idea/creating-running-and-packaging-your-first-java-application.html#create_project>`_
+
 Helpful Linux Tools
 -------------------
 * **Screenshot** - screen capture app
