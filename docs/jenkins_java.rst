@@ -16,7 +16,10 @@ The first thing I did was fork a copy of the author's sample `hello-world-servle
 on the repo link and click the 'Fork' button. GitHub will then place a copy of the repo under your account. So
 now our test source code repo is set up.
 
-Now on the Jenkins homepage:
+Configure Jenkins Global Tools
+------------------------------
+
+Now on the Jenkins Dashboard (i.e. top level Jenkins page):
 
 * Click **Manage Jenkins**
 
@@ -49,9 +52,12 @@ Now on the Jenkins homepage:
    :align: center
 
 At this point, Jenkins knows where all the tools are required for the following steps. We really aren't using
-Docker at this point, but it's good to get it out of the way.
+Docker in this exercise, but it's good to get it out of the way.
 
-Now back on
+Configure Jenkins Build Job
+---------------------------
+
+Now back on Jenkins Dashboard:
 
 * Click the **New Item** button and enter the name of your project (e.g. hello-world-servlet)
 * Choose the **Freestyle Project** project type
@@ -82,9 +88,37 @@ This will take you to the job configuration page below similar to the figure bel
 .. image:: images/jenkins-create-job-2.png
    :align: center
 
-* In **Post-build Actions** section ... empty for now.
+We'll also configure Jenkins to generate a report that summarizes the unit test execution
+
+* Click **Add post-build action**
+* Choose **Publish JUnit test result report**
+* Enter the following in the **Test Reports XMLs** text field:
+
+.. code:: bash
+
+   **/target/surefire-reports/*.xml
+
+* When you're finished, press **Save**
+
+The **Test Reports XMLs** field points to the directory where your Surefire tests are published.
+Maven creates a target directory, a surefire-reports subdirectory, and then publishes a set of XML files
+summarizing the test results to the new directory.
 
 .. image:: images/jenkins-post-build-actions.png
    :align: center
 
-* When you're finished, press Save.
+Running the Job
+---------------
+Okay, finally ready to have Jenkins run a build! Back on the Jenkins Dashboard, you should now see your
+job listed similar to the image below.
+
+.. image:: images/jenkins-dashboard-with-job.png
+   :align: center
+
+Click on the **'Build'** icon (highlighted in red). Assuming the build was successful, you'll see a little build
+number under the **'Last Success'** column (e.g. #1). It's a link, so you can click on it to get to the build
+details screen. To check out the build output, click on **'Console Output'** option in the left nav bar. At the
+bottom of the build details screen you'll also see a link for **'Test Results'**. This will, obviously, show
+you the results of any unit tests run.
+
+

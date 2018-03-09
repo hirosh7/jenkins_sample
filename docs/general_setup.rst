@@ -85,6 +85,10 @@ On the host, run:
    To make a successful connection, make sure both the host and client are on the
    **same network** (e.g. same Wi-FI SSID or directly connected to the same router.
 
+Helpful Linux Tools
+-------------------
+* **Screenshot** - screen capture app
+* **Gimp** - image editor
 
 
 
