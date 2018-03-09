@@ -37,10 +37,10 @@ This approach will set up local persistent volumes. Then to kick this off, just 
 
 .. Note::
    Since we already have our local Jenkins server running on port 8080 we need to configure the Gerrit docker
-   container to use a different port. So in the **docker-compose.yaml** file we want to specify a different port mapping.
-   Per the `docker run man page
-   <https://docs.docker.com/engine/reference/commandline/run/#add-bind-mounts-or-volumes-using-the-mount-flag>`_, the port
-   mapping is <host machine port>:<container port>. So, if you have a port mapping like
+   container to use a different port. So in the **docker-compose.yaml** file we want to specify a different port
+   mapping. Per the `docker run man page
+   <https://docs.docker.com/engine/reference/commandline/run/#add-bind-mounts-or-volumes-using-the-mount-flag>`_,
+   the port mapping is <host machine port>:<container port>. So, if you have a port mapping like
    **8081:8080**, messages routed to port **8081** on the host machine will hit the container port 8080. This is what
    we want. So note the update in the above file sample
 
