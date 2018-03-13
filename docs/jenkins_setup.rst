@@ -1,35 +1,18 @@
 
-Jenkins Setup
-=============
+Jenkins Setup (Docker Container)
+================================
+After doing some additional reading, it seems to make more sense to install Jenkins in a container. This way, it will
+be portable and by committing any changes to a custom image, I won't need to redo any specific plugins or
+customizations as they will all be there in the container.
 
-Next we want to install the containerized version of Jenkins. For the initial install, I'll plan
-to install standard Jenkins vs. `the containerized Docker version
-<https://hub.docker.com/r/jenkins/jenkins/>`_ on Docker Hub. So I'm going by the instructions from
-`Jenkins.io <https://jenkins.io/doc/book/installing/#debian-ubuntu>`_ for Linux Debian/Ubuntu installs.
+We'll install the `the containerized Docker version <https://hub.docker.com/r/jenkins/jenkins/>`_ on Docker Hub and
+go with the documentation linked there.
 
-Here are the details:
+First, we'll run the Jenkins in non-detached mode to make sure everything is working.
 
-.. code-block:: bash
+.. code:: bash
 
-   wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
-   sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
-   sudo apt-get update
-   sudo apt-get install jenkins
-
-This package installation will:
-
-* Setup Jenkins as a daemon launched on start. See /etc/init.d/jenkins for more details.
-* Create a jenkins user to run this service.
-
-* Direct console log output to the file /var/log/jenkins/jenkins.log. Check this file if you are troubleshooting
-  Jenkins.
-* Populate /etc/default/jenkins with configuration parameters for the launch, e.g JENKINS_HOME
-* Set Jenkins to listen on port 8080. Access this port with your browser to start configuration.
-
-.. Warning::
-   If your /etc/init.d/jenkins file fails to start Jenkins, edit the /etc/default/jenkins to replace the
-   line ----HTTP_PORT=8080---- with ----HTTP_PORT=8081---- Here, "8081" was chosen but you can put another
-   port available.
+   docker run -p 8080:8080 -p 50000:50000 --name Jenkins_Master -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts
 
 Configuring Jenkins
 -------------------
@@ -73,3 +56,20 @@ the page.
 
    If you chose the Install without restart button, you may need to restart Jenkins in order to gain full Blue Ocean
    functionality.
+
+Configure to Run in Docker-Compose
+----------------------------------
+Once the setup has been confirmed, we need to add the setup to our docker-compose.yaml file. Here are the updates
+
+.. code:: bash
+
+      jenkins:
+        image: jenkins/jenkins:lts
+        ports:
+          - "50000:5000"
+          - "8080:8080"
+        volumes:
+          - jenkins_home:/var/jenkins_home
+        container_name: Jenkins_Master
+
+That should do it.
