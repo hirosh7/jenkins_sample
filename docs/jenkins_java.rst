@@ -1,5 +1,10 @@
 Jenkins Java Webapp Automation
 ==============================
+
+TODO: Rework this for running build job in a maven container
+
+https://jenkins.io/doc/tutorials/build-a-java-app-with-maven/
+
 .. Note::
 
    These details are based on Jenkins Version 2.89.4

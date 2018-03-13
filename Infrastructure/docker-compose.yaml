@@ -3,12 +3,15 @@ version: "2"
 services:
 
   jenkins:
-    image: jenkins/jenkins:lts
+    image: jenkinsci/blueocean
     ports:
       - "50000:5000"
       - "8080:8080"
+    user: root
     volumes:
       - jenkins_home:/var/jenkins_home
+      - /home/hirosh7:/home
+      - /var/run/docker.sock:/var/run/docker.sock
     container_name: Jenkins_Master
 
   gerrit:
