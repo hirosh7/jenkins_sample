@@ -1,14 +1,27 @@
 
 Jenkins Setup (Docker Container)
 ================================
-After doing some additional reading, it seems to make more sense to install Jenkins in a container. This way, it will
+After doing some additional reading, it seems to make more sense to install Jenkins in a **container**. This way,
+it will
 be portable and by committing any changes to a custom image, I won't need to redo any specific plugins or
 customizations as they will all be there in the container.
 
-We'll install the `the containerized Docker version <https://hub.docker.com/r/jenkins/jenkins/>`_ on Docker Hub and
-go with the documentation linked there.
+We'll install the `the containerized Docker jenkinsci/blueocean
+image <https://hub.docker.com/r/jenkinsci/blueocean/>`_ as it has the ability to spin up other docker containers
+and run tests.
 
-First, we'll run the Jenkins in non-detached mode to make sure everything is working.
+.. Warning::
+   jenkinsci/blueocean containers need to be brought up with the user **'root'** in order to spin up other test docker
+   containers. Currently looking for workaround for this.
+
+I would prefer running with the `jenkins/jenkins image <https://hub.docker.com/r/jenkins/jenkins/>`_ but
+even with the user set as root on its container and a volume set to get to **'/var/run/docker.sock'**, it's not able
+to find docker and the resulting pipeline fails.
+
+.. image:: images/jenkins_jenkins_docker_fail.png
+   :align: center
+
+So to start, we'll run the Jenkins in non-detached mode to make sure everything is working.
 
 .. code:: bash
 
@@ -59,17 +72,20 @@ the page.
 
 Configure to Run in Docker-Compose
 ----------------------------------
-Once the setup has been confirmed, we need to add the setup to our docker-compose.yaml file. Here are the updates
+Once the setup has been confirmed, we need to add the setup to our docker-compose.yaml file. Here are the updates. Just
+add this inside the **'services:'** block.
 
 .. code:: bash
 
       jenkins:
-        image: jenkins/jenkins:lts
+        image: jenkinsci/blueocean
         ports:
           - "50000:5000"
           - "8080:8080"
         volumes:
           - jenkins_home:/var/jenkins_home
+          - /home/hirosh7:/home
+          - /var/run/docker.sock:/var/run/docker.sock
         container_name: Jenkins_Master
 
 That should do it.
