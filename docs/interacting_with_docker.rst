@@ -2,13 +2,11 @@ Docker Overview
 ===============
 
 Since what's actually created within the Kubernetes cluster pods are docker containers,
-we should step back and get a better understanding of Docker. Data for this section was
+we should step back and get a better understanding of Docker (and docker-compose). Data for this section was
 pulled from `Docker for Beginners <https://docker-curriculum.com/>`_.
 
 Helpful Docker Commands
 ---------------------------
-
-drop knowledge here
 
 .. code-block:: bash
 
@@ -72,6 +70,28 @@ drop knowledge here
   # If we want to load that Docker container from the archived tar file in the future, we can use the docker load
   # command:
   docker load --input secops_tomcat.tar
+
+Helpful Docker-Compose Commands
+-------------------------------
+
+.. code:: bash
+
+   # Start all docker containers defined in the docker-compose.yaml file
+   # and detach output from the terminal window
+   docker-compose up -d
+
+   # Tear down all docker containers
+   docker-compose down
+
+   # Tail the log file of a particular service (service names are defined in
+   # the docker-compose.yaml file
+   docker-compose logs -f <service_name> (e.g. jenkins)
+
+   # Tail the logs of all containers
+   docker-compose logs -f
+
+   # Get docker-compose help
+   docker-compose -help
 
 
 
