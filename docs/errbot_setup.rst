@@ -25,7 +25,8 @@ You can now open a terminal window and source to the chatops virtualenv director
 .. code:: bash
 
    # Switch to chatops virtualenv
-   source /home/hirosh7/PycharmProjects/chatops/venv/bin/activate
+   cd /home/hirosh7/PycharmProjects/chatbot
+   source /home/hirosh7/PycharmProjects/chatbot/venv/bin/activate
 
    # start errbot in interactive mode
    errbot
