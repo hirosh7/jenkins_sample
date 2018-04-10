@@ -113,7 +113,7 @@ To enable using the bot's name in BOT_ALT_PREFIXES for @mentions in Slack, simpl
 
    BOT_ALT_PREFIXES = ('@astrobot',)
 
-.. info::
+.. tip::
 
    If you're using a bot account you should set CHATROOM_PRESENCE = (). Bot accounts on Slack are not allowed to
    join/leave channels on their own (they must be invited by a user instead) so having any rooms setup in
@@ -122,6 +122,20 @@ To enable using the bot's name in BOT_ALT_PREFIXES for @mentions in Slack, simpl
    If you are using a regular user account for the bot then you can set CHATROOM_PRESENCE to a list of channels and
    groups to join.
 
+Now run errbot again as described above in a terminal window. Back in your Slack group (e.g. #secops),
+click the **'invite others to this channel'** link and add **'@astrobot'**. Now try sending a message to **@astrobot**
+in the channel (e.g. !tryme). Back in terminal window, you'll see debug log message indicate that the message
+successfully arrived at the errbot daemon, but since you have no responses configured, you'll see no response back in
+slack.
+
+.. image:: images/errbot_initial_msg_receive.png
+
+
+Now it's time to configure those responses.
+
+Configuring errbot Slack responses
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The hotness goes here.
 
 
 
