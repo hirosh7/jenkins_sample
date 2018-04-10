@@ -82,7 +82,45 @@ you can do later on:
 
 Slack Backend Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Text goes here
+We start with installing the python 'slackclient' in our project. Add to the project interpreter setting via the
+Pycharm settings option. Alternatively, at the project command line
+
+.. code:: bash
+
+   pip install slackclient
+
+Next we need to `add the bot integration to Slack <https://hausblackandwhite.slack.com/apps/new/A0F7YS25R-bots>`_.
+This link will take you to a page similar to the following:
+
+.. image:: images/slack_bot_integration.png
+
+Click the **'Add Bot Integration'** button and that will take you to the bot settings page where you can capture your
+bot token and add bot customizations like adding an image and description.
+
+Update the bot project **config.py** file to include a valid admin and the token similar to the following:
+
+.. code:: bash
+
+   BOT_IDENTITY = {
+    'token': 'xoxb-4426949411-aEM7...',
+   }
+
+   BOT_ADMINS = ('@hirosh7')
+
+To enable using the bot's name in BOT_ALT_PREFIXES for @mentions in Slack, simply add the bot's name as follows:
+
+.. code:: bash
+
+   BOT_ALT_PREFIXES = ('@astrobot',)
+
+.. info::
+
+   If you're using a bot account you should set CHATROOM_PRESENCE = (). Bot accounts on Slack are not allowed to
+   join/leave channels on their own (they must be invited by a user instead) so having any rooms setup in
+   CHATROOM_PRESENCE will result in an error.
+
+   If you are using a regular user account for the bot then you can set CHATROOM_PRESENCE to a list of channels and
+   groups to join.
 
 
 
