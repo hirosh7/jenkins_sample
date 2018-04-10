@@ -122,20 +122,23 @@ To enable using the bot's name in BOT_ALT_PREFIXES for @mentions in Slack, simpl
    If you are using a regular user account for the bot then you can set CHATROOM_PRESENCE to a list of channels and
    groups to join.
 
-Now run errbot again as described above in a terminal window. Back in your Slack group (e.g. #secops),
+Now run errbot again as described above in a terminal window. Back in your Slack channel (e.g. #secops),
 click the **'invite others to this channel'** link and add **'@astrobot'**. Now try sending a message to **@astrobot**
-in the channel (e.g. !tryme). Back in terminal window, you'll see debug log message indicate that the message
-successfully arrived at the errbot daemon, but since you have no responses configured, you'll see no response back in
-slack.
+in the channel (e.g. !tryme). Back in the terminal window, you'll see debug log messages indicate that the message
+successfully arrived at the errbot daemon, then you'll also see the response show up in the Slack window.
 
-.. image:: images/errbot_initial_msg_receive.png
+.. image:: images/bot_alt_prefix.png
 
+.. note::
 
-Now it's time to configure those responses.
+   You can also run the command and get a response in Slack by using the prefix format (e.g. !tryme vs.
+   @astroboy !tryme). In this case, there's no need to set the **BOT_ALT_PREFIXES** variable, but personally
+   it makes the experience more personal with the alternative prefix.
 
-Configuring errbot Slack responses
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The hotness goes here.
+Additional Configurations
+~~~~~~~~~~~~~~~~~~~~~~~~~
+- running errbot as a daemon
+- connecting to Jenkins, running a build and reporting back
 
 
 
