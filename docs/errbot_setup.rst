@@ -137,6 +137,7 @@ successfully arrived at the errbot daemon, then you'll also see the response sho
 
 Additional Configurations
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+- add a new, working plugin
 - running errbot as a daemon
 - connecting to Jenkins, running a build and reporting back
 
