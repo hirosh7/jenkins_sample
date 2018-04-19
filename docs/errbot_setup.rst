@@ -137,6 +137,9 @@ successfully arrived at the errbot daemon, then you'll also see the response sho
 
 Additional Configurations
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PySide
+******
 For better local testing, `the documentation <https://media.readthedocs.org/pdf/errbot/latest/errbot.pdf>`_ mentions
 installing **PySide**. In order to do that you first have to install **cmake**
 
@@ -152,6 +155,52 @@ Once that's installed, now you can run
 .. code:: bash
 
    sudo pip install pyside
+
+Although PySide seemed to install successfully, when I run the command
+
+.. code:: bash
+
+   pip install errbot[graphic]
+
+I get the following error message:
+
+.. code:: bash
+
+    Complete output from command python setup.py egg_info:
+    only these python versions are supported: [(2, 6), (2, 7), (3, 2), (3, 3), (3, 4)]
+
+    ----------------------------------------
+    Command "python setup.py egg_info" failed with error code 1 in /tmp/pip-build-li6req9x/PySide/
+
+Unfortunately, I'm running 2.7.14 and 3.6 so I may be out of luck. I'll follow this up later
+
+Helpful Errbot Commands
+***********************
+.. code:: bash
+
+   # You can have your bot display the same list of repos by issuing:
+   !repos
+
+   # Searching can be done by specifying one or more keywords, for example:
+   !repos search hello
+
+   # To install a plugin from the list, issue:
+   !repos install <name of plugin>
+
+   # If you’re unhappy with a plugin and no longer want it, you can always uninstall a plugin again with:
+   !repos uninstall <plugin>
+
+   # You will probably also want to update your plugins periodically
+   !repos update all
+
+Creating and Installing Plugins
+*******************************
+
+
+
+
+
+
 
 
 - add a new, working plugin
