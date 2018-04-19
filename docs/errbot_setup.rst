@@ -195,17 +195,43 @@ Helpful Errbot Commands
 
 Creating and Installing Plugins
 *******************************
+I installed a jenkins CI errbot plugin from `https://github.com/membrive/err-jenkins
+<https://https://github.com/membrive/err-jenkins>`_. I was unable to install it directly via errbot (e.g.
+!repos install https://github.com/membrive/err-jenkins) so I did **git clone** in the chatbot plugins directory
 
+.. code:: bash
 
+   git clone https://github.com/membrive/err-jenkins
 
+It turns our that there's an error with the __init__() override method. The original is
 
+.. code:: bash
 
+   def __init__(self, bot):
+     self.jenkins = Jenkins(JENKINS_URL, JENKINS_USERNAME, JENKINS_PASSWORD)
+     super().__init__(bot)
 
+but for this to work, I had to update this to
 
+.. code:: bash
 
-- add a new, working plugin
-- running errbot as a daemon
-- connecting to Jenkins, running a build and reporting back
+   def __init__(self, bot, name=None):
+     self.jenkins = Jenkins(JENKINS_URL, JENKINS_USERNAME, JENKINS_PASSWORD)
+     super().__init__(bot, name)
+
+This may be due to updates in errbot. At any rate, this change allows the plugin to init successfully and when I
+executed
+
+.. code:: bash
+
+   !jenkins list
+
+in Slack, it successfully retrieved the configured jobs and listed them.
+
+.. note::
+   For this to work, you need to populate the environment variable JENKINS_URL, JENKINS_USERNAME and JENKINS_PASSWORD
+   in the errbot config.py file
+
 
 
 

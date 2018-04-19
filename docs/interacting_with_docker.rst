@@ -80,6 +80,9 @@ Helpful Docker-Compose Commands
    # and detach output from the terminal window
    docker-compose up -d
 
+   # Start a single docker container and detach output from the terminal window
+   docker-compose up -d <service_name> (e.g. jenkins)
+
    # Tear down all docker containers
    docker-compose down
 
