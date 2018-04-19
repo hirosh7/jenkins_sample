@@ -137,6 +137,23 @@ successfully arrived at the errbot daemon, then you'll also see the response sho
 
 Additional Configurations
 ~~~~~~~~~~~~~~~~~~~~~~~~~
+For better local testing, `the documentation <https://media.readthedocs.org/pdf/errbot/latest/errbot.pdf>`_ mentions
+installing **PySide**. In order to do that you first have to install **cmake**
+
+.. code:: bash
+
+   sudo apt install cmake
+
+Then install **qmake**. Details for that are found in this `install doc
+<http://www.geopsy.org/wiki/index.php/Installing_Qt_binary_packages>`_
+
+Once that's installed, now you can run
+
+.. code:: bash
+
+   sudo pip install pyside
+
+
 - add a new, working plugin
 - running errbot as a daemon
 - connecting to Jenkins, running a build and reporting back
