@@ -14,18 +14,6 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     container_name: Jenkins_Master
 
-  gerrit:
-    image: gerritcodereview/gerrit
-    ports:
-      - "29418:29418"
-      - "8081:8080"
-    volumes:
-      - git-volume:/var/gerrit/git
-      - db-volume:/var/gerrit/db
-      - index-volume:/var/gerrit/index
-      - cache-volume:/var/gerrit/cache
-    container_name: Gerrit
-
   sonarqube:
       image: sonarqube
       ports:
@@ -79,9 +67,3 @@ volumes:
   # PostgreSQL volumes
   postgresql:
   postgresql_data:
-
-  # Gerrit Volumes
-  git-volume:
-  db-volume:
-  index-volume:
-  cache-volume:

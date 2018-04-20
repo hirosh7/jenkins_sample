@@ -47,6 +47,8 @@ SecOps Sandbox Notes
 
    gc_gerrit_setup
    jenkins_ci_setup
+   gerrit_container_setup
+
 
 Indices and tables
 ==================
