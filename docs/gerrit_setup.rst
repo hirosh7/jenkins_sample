@@ -24,6 +24,21 @@ To do this I edited **~/gerrit_testsite/etc/gerrit.config** and changed the foll
    [httpd]
        listenUrl = http://*:8081/
 
+I also had to simplify authentication. The default OpenID option was a little problematic. There seemed to be no easy way
+to set up a separate authenticated admin account. Default setting is to set up the first added user with admin
+ privileges which is not what I wanted, so I went with
+
+.. code:: bash
+
+   [auth]
+        type = DEVELOPMENT_BECOME_ANY_ACCOUNT
+
+as documented in `the auth guide <https://gerrit-review.googlesource.com/Documentation/config-gerrit.html#auth>`_.
+
+.. warning::
+   This authentication setting is ONLY for development. When moving to production, choose one of the standard options
+   like **OpenID** or **OAuth**.
+
 Gerrit is installed as a service so you can use the following to start and stop Gerrit
 
 .. code:: bash
@@ -41,6 +56,19 @@ So to commit the config file change, I restarted the Gerrit service
 Configuring Gerrit
 ------------------
 
+Creating another Gerrit User
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: bash
+
+   # create new Gerrit user tchalla
+   sudo adduser tchalla
+   sudo su gerrit
+   cd /home/tchalla
+
+   ssh-keygen -t rsa
+
+   # follow along with the rest of the instructions highlighted above (Gerrit Quick Install)
 
 Importing a project into Gerrit
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
