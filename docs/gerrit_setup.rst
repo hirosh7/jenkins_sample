@@ -253,6 +253,6 @@ All's right in the world. The change commit was successful and you can view it i
 .. image:: images/gerrit_change_review_1.png
    :align: center
 
-Configuring Gerrit Git with IntelliJ
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configuring Gerrit Git with IntelliJ IDE
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Into the heart of darkness...
