@@ -32,6 +32,7 @@ SecOps Sandbox Notes
    :caption: Configuration & Integration
 
    jenkins_java
+   gerrit_jenkins_integration
 
 .. toctree::
    :maxdepth: 2

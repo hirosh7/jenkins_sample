@@ -32,6 +32,18 @@ This informs xterm to use the 'fixed' font at size 18. From here, you can either
 in a terminal to incorporate the changes you've made. All new xterms should now have the font change. If you run
 **'man xterm'** and go down to the RESOURCES section, you can find a wealth of additional, configurable xterm options.
 
+Add/Remove Users
+~~~~~~~~~~~~~~~~
+
+.. code:: bash
+
+   # add a user
+   sudo adduser <user_name>
+
+   # remove a user
+   sudo userdel <user_name>
+
+
 
 
 

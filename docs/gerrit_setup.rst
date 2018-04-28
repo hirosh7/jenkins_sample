@@ -63,7 +63,7 @@ Creating another Gerrit User
 
    # create new Gerrit user tchalla
    sudo adduser tchalla
-   sudo su gerrit
+   sudo su tchalla
    cd /home/tchalla
 
    ssh-keygen -t rsa
