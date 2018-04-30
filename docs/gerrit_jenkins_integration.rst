@@ -34,4 +34,4 @@ ssh key and verify connectivity
 
 You should see connect success message which confirms our set up is ready to go.
 
-
+Now over in Jenkins, we want to create a new pipeline job.

@@ -36,6 +36,12 @@ SecOps Sandbox Notes
 
 .. toctree::
    :maxdepth: 2
+   :caption: Applications
+
+   google_home_actions
+
+.. toctree::
+   :maxdepth: 2
    :caption: References
 
    interacting_with_docker
