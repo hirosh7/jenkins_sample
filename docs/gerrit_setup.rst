@@ -255,4 +255,27 @@ All's right in the world. The change commit was successful and you can view it i
 
 Configuring Gerrit Git with IntelliJ IDE
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Pretty straightforward. The first approach is to set up the Gerrit project, push the code to Gerrit and then clone
+the Gerrit
+project in another directory. Then use IntelliJ to open that newly cloned project. It will ask for your Gerrit access
+password in a pop-up dialog. This will be the HTTP password you set up previously in Gerrit. If you haven't set this up
+yet, go into Gerrit Settings->HTTP Password, generate a password. Copy and paste that password into the pop-up dialog.
+You should also save it in IntelliJ by going to Settings->Version Control->Gerrit. For some reason, this data doesn't
+seem to be used since each time I push a change to Gerrit, I get asked for the password via the pop-up dialog. Repeated
+pushes will also asks for the SSH passphrase we set up despite there being a **Remember** checkbox. That also doesn't
+seem to work.
+
+At any rate, when you specify the push, Gerrit options will be presented. Check the **Push to Gerrit** option and then
+select any other desired options. I specify that the changes should be reviewed by another developer (user tchalla on
+Gerrit), but that also doesn't seem to work yet. I push the change but when I check tchalla's dashboard, there are no
+incoming reviews listed.
+
+
+The ideal approach, which I haven't tried yet, seems to be creating a new, empty Gerrit project, cloning it, opening it
+with IntelliJ and then adding the new project files in IntelliJ as you build up the app. I'll confirm this later.
+
+Setting Up Another Reviewer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Into the heart of darkness...
+
+
