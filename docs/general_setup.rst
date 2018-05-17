@@ -97,6 +97,9 @@ Helpful Linux Tools
 -------------------
 * **Screenshot** - screen capture app
 * **Gimp** - image editor
+   * `Taking a screenshot with Gimp <http://openoffice.blogs.com/openoffice/2010/01/taking-a-screen-shot-using-gimp.html>`_
+
+
 
 
 

@@ -34,4 +34,10 @@ ssh key and verify connectivity
 
 You should see connect success message which confirms our set up is ready to go.
 
+https://wiki.jenkins.io/display/JENKINS/Gerrit+Trigger#GerritTrigger-SetUp
 
+# don't see this permission option to set
+Label Verified: -1, +1 for Non-Interactive Users
+
+Needed to download Gerrit Trigger plugin in Jenkins (install and restart)
+Manage Jenkins->Gerrit Trigger, then click on 'Add New Server' - follow instructions from there
