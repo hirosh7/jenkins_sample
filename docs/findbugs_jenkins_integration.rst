@@ -60,7 +60,16 @@ With the update integrated and saved, test it out with the following commands:
 .. image:: images/findbugs_window.png
    :align: center
 
+With this working properly, we now return to the Jenkins integration portion of the tutorial. First step here is
+download the `FindBugs Plug-in <http://wiki.jenkins-ci.org/x/GYAs>`_ into Jenkins via Manage Jenkins->Manage Plugins.
+Confirm that the static analysis collector plugin was also downloaded with the FindBugs Plug-in. With the appropriate
+plugins installed, the last step is to add the extra required configurations to your existing pipeline job. In my case,
+this is the Gerrit-Demo-Project job. Here are the specific steps:
 
+1) hmmm - this should go in the Jenkinsfile...
 
-In jenkins download findbugs plugin and static analysis collector (if not included with findbugs plugin install)
+Build : Change the goals to something similar to clean install findbugs:findbugs. f
+indbugs:findbugs needs to be after the compilation process.
+
+Build Settings : Check "Publish FindBugs analysis results"
 
