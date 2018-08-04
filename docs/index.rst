@@ -34,6 +34,7 @@ SecOps Sandbox Notes
    jenkins_java
    gerrit_jenkins_integration
    findbugs_jenkins_integration
+   jenkins_github_integration
 
 .. toctree::
    :maxdepth: 2
