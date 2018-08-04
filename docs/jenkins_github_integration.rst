@@ -36,11 +36,51 @@ Add the following three updates:
    option
 
 Leave the rest of the options as their default values and click **Add Webhook**. Your webhook should now
-be listed in the webhook section (where you get taken when you click on the **Webhooks** menu option.
+be listed in the webhook section (where you get taken when you click on the **Webhooks** menu option).
 
 Setting up the Personal Access Token
 ++++++++++++++++++++++++++++++++++++
 Now we'll set up the personal access token that Jenkins needs go interact with data pushed from GitHub.
-To do this, from your GitHub profile page,
+To do this, go to your GitHub user drop-down menu and select **Settings**
+
+.. image:: images/GitHub_setting_menu.png
+   :align: center
+
+Then from the left-hand menu bar, select **Developer Settings** and from Developer Settings, select
+**Personal Access Tokens**. On the Personal Access Tokens page, click **Generate New Token**.
+
+This finally gets you to the Generate New Token page
+
+.. image:: images/personal_access_token.png
+   :align: center
+
+Update as follows:
+
+#. Add a good description like **Master Jenkins Dev Server**. The description is helpful as you'll likely
+   have many of these tokens for many different applications
+#. Select the authorization scopes. These are particularly important to get right for the integration
+   to work successfully. For Jenkins authorizations you'll need the following:
+
+   * Repo (select the top options so all the sub-options get selected as well)
+   * admin:org_hook
+   * admin:repo_hook (select the top options so all the sub-options get selected as well)
+
+With the updates made, click on **Generate Token** and copy your new token string.
+
+.. warning::
+
+   As the warning indicates after you generate your token, you must copy the token at that point as
+   you won't be able to see it again. If you fail to do so, your only recourse is to regenerate the
+   token.
+
+With these GitHub updates done, it's now time to do similar updates in Jenkins.
+
+Jenkins Updates
+~~~~~~~~~~~~~~~
+
+
+
+
+
 
 
