@@ -36,6 +36,7 @@ SecOps Sandbox Notes
    findbugs_jenkins_integration
    jenkins_github_integration
    owasp_dc_integration
+   arachni_threadfix_integration
 
 .. toctree::
    :maxdepth: 2
