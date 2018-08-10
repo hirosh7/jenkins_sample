@@ -32,6 +32,8 @@ services:
 
   tomcat:
       image: hirosh7/secops_tomcat
+      volumes:
+        - /home/hirosh7/extras/:/usr/local/tomcat/extras/
       ports:
         - "8888:8080"
       container_name: Tomcat

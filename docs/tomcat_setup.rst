@@ -42,7 +42,7 @@ Make a temporary directory to hold the file(s) we want to modify. In this exampl
 .. Warning::
 
    You can name this directory anything you want but be sure there's not a directory with the same name in the
-   contain in the path where you plan to copy it
+   container in the path where you plan to copy it
 
 Copy the **tomcat-users.xml** file from its location in the Tomcat container to the **extras** directory you just
 created on the host machine.
@@ -51,11 +51,11 @@ created on the host machine.
 
    docker cp Tomcat:/usr/local/tomcat/conf/tomcat-users.xml extras/tomcat-users.xml
 
-   # With the file in ./conf/tomcat-users.xml on the host, edit the file and add the following:
+   # With the file in ./extras/tomcat-users.xml on the host, edit the file and add the following:
    #   <role rolename="manager-gui"/>
    #   <user username="tomcat" password="sc00by" roles="manager-gui"/>
 
-   nano conf/tomcat-users.xml
+   nano extras/tomcat-users.xml
 
 With the file updated, we need to save it back in the Tomcat container. We can do this by specifying a
 volume that creates a new directory in the container

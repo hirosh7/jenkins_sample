@@ -86,6 +86,9 @@ Helpful Docker-Compose Commands
    # Tear down all docker containers
    docker-compose down
 
+   # Stop a docker service
+   docker-compose stop <service_name> (e.g. jenkins)
+
    # Tail the log file of a particular service (service names are defined in
    # the docker-compose.yaml file
    docker-compose logs -f <service_name> (e.g. jenkins)
