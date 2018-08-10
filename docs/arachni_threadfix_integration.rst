@@ -7,4 +7,5 @@ Arachni into your CI environment along with ThreadFix - a web-based tool for col
 findings from different tools such as Arachni. Let's give that a whirl.
 
 
-
+https://wiki.jenkins.io/display/JENKINS/Deploy+Plugin
+install plugin via Jenkins Plugin Manager
