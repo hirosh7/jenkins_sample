@@ -84,7 +84,7 @@ permanent. We can do this by committing this change into a new image.
 
 .. Note::
 
-   Any approach to this is to copy the file from the host to the container by just reversing the parameters to
+   Another approach to this is to copy the file from the host to the container by just reversing the parameters to
    'docker cp'.
 
 .. code:: bash

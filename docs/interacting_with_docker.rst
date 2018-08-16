@@ -71,6 +71,11 @@ Helpful Docker Commands
   # command:
   docker load --input secops_tomcat.tar
 
+  # Get IP Address of Docker Container
+  # Get docker <container id>
+  docker ps
+  docker inspect <container id> | grep "IPAddress"
+
 Helpful Docker-Compose Commands
 -------------------------------
 
