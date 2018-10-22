@@ -26,6 +26,7 @@ SecOps Sandbox Notes
    sonarqube_setup
    tomcat_setup
    errbot_setup
+   ansible_setup
 
 .. toctree::
    :maxdepth: 2
