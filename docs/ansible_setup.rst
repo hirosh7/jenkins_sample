@@ -59,3 +59,8 @@ Before putting together a playbook of plays, you can try out `single (ad hoc) co
 <https://docs.ansible.com/ansible/2.5/user_guide/intro_adhoc.html>`_ to get a feel for the
 types of things that can be done. Once you're familiar with a few commands and return data, the next step will be to
 code them into a playbook.
+
+Pulling Ansible Playbooks from Github
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+data goes here
+
