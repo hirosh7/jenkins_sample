@@ -55,7 +55,6 @@ SecOps Sandbox Notes
    gerrit_container_setup
    arachni_threadfix_integration
 
-
 Indices and tables
 ==================
 
