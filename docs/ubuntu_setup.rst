@@ -85,3 +85,39 @@ this section come from this article, `'How to Install Java on Ubuntu'
   nano /etc/environment
 
   # update $JAVA_HOME variable with new path
+
+Shodan CLI Setup
+~~~~~~~~~~~~~~~~
+
+.. code:: bash
+
+   # Installs as part of the python install
+   sudo pip install shodan
+
+   # on my Ubuntu system, the executable ended up in ./.local/bin so
+   # edit .bashrc and add that to the path
+   export PATH=$PATH:./.local/bin
+
+   # Initialize Shodan with your API key. You can find this under
+   # your `shodan <(https://www.shodan.io/)>`_ login. Click on 'My Account' once logged in
+   shodan init <api-key>
+
+Installing Searchsploit
+~~~~~~~~~~~~~~~~~~~~~~~
+
+The following was pulled from the `Exploit-DB web page <https://www.exploit-db.com/searchsploit/#installlinux>`_
+for Linux.
+
+“searchsploit”, [is] a command line search tool for Exploit-DB that also allows you to take a copy of Exploit Database
+with you, everywhere you go. SearchSploit gives you the power to perform detailed off-line searches through your
+locally checked-out copy of the repository. This capability is particularly useful for security assessments on
+segregated or air-gapped networks without Internet access.
+
+.. code:: bash
+
+   git clone https://github.com/offensive-security/exploitdb.git /opt/exploitdb
+
+   # Add /opt/exploitdb to ~/.bashrc path
+   export PATH=$PATH:/opt/exploitdb
+
+

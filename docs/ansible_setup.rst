@@ -45,7 +45,7 @@ To test connectivity:
 .. code:: bash
 
    # Assume your target server(s) are defined in the devserver' group in the /etc/ansible/hosts file
-   $ ansible devserver -m ping'
+   $ ansible devserver -m ping
 
    # Sample output
    <target server name> | SUCCESS => {
