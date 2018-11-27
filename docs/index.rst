@@ -37,6 +37,7 @@ SecOps Sandbox Notes
    findbugs_jenkins_integration
    jenkins_github_integration
    owasp_dc_integration
+   add_jenkins_agent
 
 .. toctree::
    :maxdepth: 2

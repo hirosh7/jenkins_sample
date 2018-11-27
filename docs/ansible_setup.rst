@@ -64,3 +64,12 @@ Pulling Ansible Playbooks from Github
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 data goes here
 
+Useful Sample Ad-Hoc Ansible Commands
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: bash
+
+   ansible devserver -m command -a 'python --version'
+
+
+
