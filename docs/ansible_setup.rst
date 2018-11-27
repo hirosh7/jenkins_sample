@@ -69,7 +69,7 @@ Useful Sample Ad-Hoc Ansible Commands
 
 .. code:: bash
 
-   ansible devserver -m command -a 'python --version'
+   ansible devserver -m command -a '<cmd line command (e.g. python --version)>'
 
 
 
