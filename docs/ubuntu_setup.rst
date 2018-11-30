@@ -120,4 +120,29 @@ segregated or air-gapped networks without Internet access.
    # Add /opt/exploitdb to ~/.bashrc path
    export PATH=$PATH:/opt/exploitdb
 
+Make Ubuntu do nothing when laptop lid closes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To make Ubuntu do nothing when laptop lid is closed:
 
+1) Open the /etc/systemd/logind.conf file in a text editor as root, for example,
+
+.. code:: bash
+
+   sudo nano /etc/systemd/logind.conf
+   # or
+   sudo -H gedit /etc/systemd/logind.conf
+
+2) Add a line **HandleLidSwitch=ignore** (make sure it's not commented out!)
+
+3) Restart the systemd daemon with this command:
+
+.. code:: bash
+
+   sudo restart systemd-logind
+   # or, from 15.04 onwards:
+   sudo service systemd-logind restart
+
+.. tip::
+   The first time I did this the laptop display blanked out and didn't turn back on even after closing
+   and reopening the lid. A reboot brought it back, but I ended up having to do this by SSH'ing into it from
+   another laptop.

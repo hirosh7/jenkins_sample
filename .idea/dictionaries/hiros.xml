@@ -7,10 +7,13 @@
       <w>devserver</w>
       <w>exploitdb</w>
       <w>gapped</w>
+      <w>gedit</w>
+      <w>logind</w>
       <w>searchsploit</w>
       <w>shodan</w>
       <w>sokovia</w>
       <w>sploit</w>
+      <w>systemd</w>
       <w>userdel</w>
       <w>wakanda</w>
       <w>xrdb</w>
