@@ -27,6 +27,7 @@ SecOps Sandbox Notes
    tomcat_setup
    errbot_setup
    ansible_setup
+   microk8s_setup
 
 .. toctree::
    :maxdepth: 2
