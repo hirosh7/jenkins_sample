@@ -84,7 +84,40 @@ The last part of the output involves setting up the access token:
 The last command will generate a token ID which you should save away. This current token is saved under the
 Lastpass **Wakanda Server** entry.
 
+The next step is to set it up so you can access the dashboard externally (from a web browser not on the server
+hosting microk8s).
+To do this I followed `How to Access Kubernetes Dashboard
+Externally <https://www.thegeekdiary.com/how-to-access-kubernetes-dashboard-externally/>`_
 
+In summary:
+
+.. code:: bash
+
+   # Edit the kubernetes-dashboard service YAML file and change the **type** from **ClusterIP** to **NodePort**
+   $ kubectl -n kube-system edit service kubernetes-dashboard
+
+   # Check the service to confirm that NodePort is set for kubernetes-dashboard and to get the IP port to use
+   $ kubectl -n kube-system get services
+
+The output will show the port type and the target IP port you need to use. In the sample output below
+the target port will be **31037**
+
+.. image:: images/k8s_get_services.png
+
+Now to connect to the Kubernetes dashboard, just open a browser and navigate to:
+https://<server_host_ip>:<port_from_get_services_output (e.g.
+https://wakanda.zapto.org:31037)
+
+If it all works, you'll see the Kubernetes dashboard login screen:
+
+.. image:: images/k8s_dashboard_login_screen.png
+
+Drop in the token value you saved previously and you should get logged in and
+see the full dashboard:
+
+.. image:: images/k8s_remote_dashboard.png
+
+GUI goodness.
 
 Checking on overall MicroK8s Installation Status
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

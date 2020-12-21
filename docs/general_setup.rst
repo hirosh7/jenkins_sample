@@ -36,6 +36,12 @@ this, you have to have your project repo on Github set to **public**.
    Doc changes need to be merged to the master branch to be picked up by the
    auto-building tools.
 
+.. important::
+   Remember that all the port numbers mentioned will need to be forwarded on
+   your router so that your local browser can access them from the server's
+   dynamic host name. In our case, that's **wakanda.zapto.org** which is set up
+   on `no-ip.com <https://no-ip.com>`_
+
 PyCharm Sample Run Config
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 To build the sphinx documentation via PyCharm, here's a sample run config. It's pretty
