@@ -1,0 +1,76 @@
+version: "2"
+
+services:
+
+  jenkins:
+    image: jenkinsci/blueocean:latest
+    ports:
+      - "50000:5000"
+      - "8080:8080"
+    user: root
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /home/hirosh7:/home
+      - /home/jenkins:/jenkins
+      - /var/run/docker.sock:/var/run/docker.sock
+    container_name: Jenkins_Master
+
+  sonarqube:
+      image: sonarqube
+      ports:
+        - "8888:9000"
+      networks:
+        - sonarnet
+      environment:
+        - SONARQUBE_JDBC_URL=jdbc:postgresql://db:5432/sonar
+      volumes:
+        - sonarqube_conf:/opt/sonarqube/conf
+        - sonarqube_data:/opt/sonarqube/data
+        - sonarqube_extensions:/opt/sonarqube/extensions
+        - sonarqube_bundled-plugins:/opt/sonarqube/lib/bundled-plugins
+      container_name: SonarQube
+
+  tomcat:
+      image: hirosh7/secops_tomcat
+      volumes:
+        - /home/hirosh7/wakanda_files:/usr/local/tomcat/wakanda_files
+        - tomcat_conf:/opt/tomcat/conf
+      ports:
+        - "9000:8080"
+      container_name: Tomcat
+
+  db:
+    image: postgres
+    networks:
+      - sonarnet
+    environment:
+      - POSTGRES_USER=sonar
+      - POSTGRES_PASSWORD=sonar
+    volumes:
+      - postgresql:/var/lib/postgresql
+      # This needs explicit mapping due to
+      # https://github.com/docker-library/postgres/blob/4e48e3228a30763913ece952c611e5e9b95c8759/Dockerfile.template#L52
+      - postgresql_data:/var/lib/postgresql/data
+    container_name: PostgreSQL_DB
+
+networks:
+  sonarnet:
+    driver: bridge
+
+volumes:
+
+  # Jenkins Volumes
+  jenkins_home:
+
+  # SonarQube Volumes
+  sonarqube_conf:
+  sonarqube_data:
+  sonarqube_extensions:
+  sonarqube_bundled-plugins:
+
+  # Tomcat Volumes
+  tomcat_conf:
+
+  # PostgreSQL volumes
+  postgresql:
+  postgresql_data:

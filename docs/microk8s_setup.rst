@@ -1,5 +1,5 @@
 MicroK8S Setup
-=============
+==============
 
 We'll use microK8s as our Kubernetes clustering option, so we'll
 experiment with installation and validation tests in this section. Most info here is pulled from the
@@ -7,69 +7,100 @@ experiment with installation and validation tests in this section. Most info her
 
 Installation
 ~~~~~~~~~~~~
-Ubuntu installation is straight-forward. Ubuntu builds are available in a PPA here.
-
-To configure the PPA on your machine and install ansible run these commands:
+We'll be installing on our updated Ubuntu 20.04 server
 
 .. code:: bash
 
-   $ sudo apt-get update
-   $ sudo apt-get install software-properties-common
-   $ sudo apt-add-repository --yes --update ppa:ansible/ansible
-   $ sudo apt-get install ansible
+   # Install MicroK8s
+   $ sudo snap install microk8s --classic --channel=1.19
 
-   # Verify install
-   $ ansible --version
+   # Join the group
+   $ sudo usermod -a -G microk8s $USER
+   $ sudo chown -f -R $USER ~/.kube
 
-   # output should look similar to the following
+   # Re-enter session for group update to take place
+   $ su - $USER
 
-   ansible 2.5.1
-   config file = /etc/ansible/ansible.cfg
-   configured module search path = [u'/home/hirosh7/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
-   ansible python module location = /usr/lib/python2.7/dist-packages/ansible
-   executable location = /usr/bin/ansible
-   python version = 2.7.15rc1 (default, Apr 15 2018, 21:51:34) [GCC 7.3.0]
+   # Check the status
+   $ microk8s status --wait-ready
 
-Setting up servers and server connectivity
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Details from this section come from `Ansible: Post-Installl Setup instructions
-<https://hvops.com/articles/ansible-post-install/>`_. In summary:
+   # Access Kubernetes
 
-1) Add your target servers to the default /etc/ansible/hosts file
-2) Generate your SSH key on your host Ansible server (e.g. ssh-keygen -t rsa -C "name@example.org" -
-   **Don't specify a passkey**)
-3) Copy your public SSH key to your target servers (e.g. ssh-copy-id user@<target_server>)
+   # To view your node
+   $ microk8s kubectl get nodes
 
-To test connectivity:
+   # To see running service
+   $ microk8s kubectl get services
 
-.. code:: bash
+   # Simplify things by adding an alias to ~/.bash_aliases or ~/.bashrc
+   $ alias kubectl='microk8s kubectl'
 
-   # Assume your target server(s) are defined in the devserver' group in the /etc/ansible/hosts file
-   $ ansible devserver -m ping
+   # Install a demo app
+   $ microk8s kubectl create deployment nginx --image=nginx
 
-   # Sample output
-   <target server name> | SUCCESS => {
-    "changed": false,
-    "ping": "pong"
-   }
+   # Starting and Stopping MicroK8s
+   $ microk8s stop
+   $ microk8s start
 
-Testing out a sample playbook
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Before putting together a playbook of plays, you can try out `single (ad hoc) commands
-<https://docs.ansible.com/ansible/2.5/user_guide/intro_adhoc.html>`_ to get a feel for the
-types of things that can be done. Once you're familiar with a few commands and return data, the next step will be to
-code them into a playbook.
+Enabling MicroK8s Add-ons
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+MicroK8s uses the minimum of components for a pure, lightweight Kubernetes.
+However, plenty of extra features are available with a few keystrokes using “add-ons” – pre-packaged components
+that will provide extra capabilities for your Kubernetes installation
 
-Pulling Ansible Playbooks from Github
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-data goes here
-
-Useful Sample Ad-Hoc Ansible Commands
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+For example, it is recommended to add DNS management to facilitate communication between services.
+For applications which need storage, the ‘storage’ add-on provides directory space on the host.
+These are easy to set up:
 
 .. code:: bash
 
-   ansible devserver -m command -a '<cmd line command (e.g. python --version)>'
+   $ microk8s enable dns storage
+
+A full list of add-ons can be found `here <https://microk8s.io/docs/addons#heading--list/>`_.
+
+You can get the current enabled/disabled status of any add-on by running:
+
+.. code:: bash
+
+   $ microk8s.status
+
+Enabling the MicroK8s Dashboard
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The MicroK8s GUI is really helpful to interact with the cluster (although you should know all
+the equivalent CLI commands as well). To enable the dashboard:
+
+.. code:: bash
+
+   $ microk8s enable dashboard
+
+The last part of the output involves setting up the access token:
+
+.. code:: bash
+
+   # If RBAC is not enabled access the dashboard using the default token retrieved with:
+   $ token=$(microk8s kubectl -n kube-system get secret | grep default-token | cut -d " " -f1)
+   $ microk8s kubectl -n kube-system describe secret $token
+
+The last command will generate a token ID which you should save away. This current token is saved under the
+Lastpass **Wakanda Server** entry.
+
+
+
+Checking on overall MicroK8s Installation Status
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+You can get full status on your installation by running the following command:
+
+.. code:: bash
+
+   # Get description, available commands, services, and release channels
+   $ sudo snap info microk8s
+
+   # Get microk8s version
+   $ sudo snap list
+
+   # Get detailed info on installation, including key warnings that could lead to trouble. Read and react.
+   $ microk8s inspect
+
 
 
 
