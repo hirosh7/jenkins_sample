@@ -3,12 +3,22 @@ Ubuntu Environment
 We'll be setting up a Security DevOps (SecOps) sandbox server to experiment with various DevOps
 tools and approaches.
 
-I've installed a dual boot version of Ubuntu 17.10 along side Windows 10 on a new desktop server.
-Credential details are in a LastPass secure note titled **Dell SecOps Desktop Server**. Additional
-details:
+Credential details are in a LastPass secure note titled **Dell SecOps Desktop Server**.
+
+Additional details:
 
 * Server Name: wakanda
 * Server IP: 192.168.0.30
+* Ubuntu Version: 20.04
+
+.. important::
+   Remember that all the port numbers mentioned will need to be forwarded on
+   your router so that your local browser can access them with the server's
+   dynamic host name. In our case, that's **wakanda.zapto.org** which is set up
+   on `no-ip.com <https://no-ip.com>`_
+
+.. important::
+   Credential details are in a LastPass secure note titled **Dell SecOps Desktop Server**.
 
 Helpful Ubuntu Commands
 -----------------------

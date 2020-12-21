@@ -82,7 +82,7 @@ The last part of the output involves setting up the access token:
    $ microk8s kubectl -n kube-system describe secret $token
 
 The last command will generate a token ID which you should save away. This current token is saved under the
-Lastpass **Wakanda Server** entry.
+Lastpass **Dell SecOps Desktop Server** entry.
 
 The next step is to set it up so you can access the dashboard externally (from a web browser not on the server
 hosting microk8s).
