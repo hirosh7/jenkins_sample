@@ -11,6 +11,8 @@
       <w>hirosh</w>
       <w>logind</w>
       <w>microk</w>
+      <w>myairflow</w>
+      <w>mychart</w>
       <w>searchsploit</w>
       <w>shodan</w>
       <w>sokovia</w>
@@ -21,6 +23,7 @@
       <w>xrdb</w>
       <w>xresources</w>
       <w>xterms</w>
+      <w>zxvf</w>
     </words>
   </dictionary>
 </component>

@@ -39,6 +39,7 @@ SecOps Sandbox Notes
    jenkins_github_integration
    owasp_dc_integration
    add_jenkins_agent
+   helm_k8s
 
 .. toctree::
    :maxdepth: 2
