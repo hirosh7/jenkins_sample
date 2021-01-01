@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name}}-configmap
+data:
+  myvalue: "Sample Config Map"
+  costCode: {{ .Values.costCode }}
+  Zone: {{ quote  .Values.infra.zone }}
+  Region: {{ quote .Values.infra.region }}
+  ProjectCode: {{ upper .Values.projectCode }}
+  pipeline: {{ .Values.projectCode | upper | quote }}
+  now: {{ now | date "2006-01-02" | quote }}
+  contact: {{ .Values.contact | default "1-800-555-5525" | quote }}
+
+ 

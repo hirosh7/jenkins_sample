@@ -10,7 +10,8 @@ Standard Installation
 
 .. code:: bash
 
-   # Get latest release from https://github.com/helm/helm/releases
+   # Get latest release from `https://github.com/helm/helm/releases
+   <https://github.com/helm/helm/releases>`_
    $ wget https://get.helm.sh/helm-v3.4.2-linux-amd64.tar.gz
 
    # Extract
@@ -37,6 +38,7 @@ Snap Installation
    $ chmod 400 HOME/.kube/config
 
    # Uninstall Helm3
+   $ microk8s disable helm3
    $ sudo snap remove helm3
 
 Useful Commands
@@ -111,14 +113,44 @@ master-course/learn/lecture/20424933#overview>`_
    # Get K8S cluster info
    $ kb cluster-info
 
+   # Get version
+   $ kb version --short
+
    # Search for a configmap
-   $ kubectl describe configmaps <configmap_name>
+   $ kb describe configmaps <configmap_name>
 
    # Install a configmap. Example uses a the configmap.yaml file in folder mychart
    $ helm install helm-demo-configmap ./mychart
 
+   # Debug configmap ot see if values are being properly substituted (sample configmap is in ./mychart dir)
+   # Note: This deployment is **not** installed. This command shows what will happen **if** you later run the
+   #       the install command
+   $ helm install --debug --dry-run <configmap_helm_name> ./mychart
 
+   # Set a value on the command line. In this example, in our configmap.yaml file we have a value like the following:
+   # **costCode: {{ .Values.costCode }}**
+   $ helm install --debug --dry-run --set costCode=BB12345 <configmap_helm_name> ./mychart
 
+   # If you want to set a default for a value that may or may not be in the values.yaml file, do the following
+   # in your configmap.yaml file
+   > contact: {{ .Values.contact | default "1-800-555-5525" }}
+
+   # Describe a configmap. Get <configmap_helm_name from **helm ls**
+   $ kb describe configmap <configmap_helm_name>
+
+   # Get the Helm manifest info
+   $ helm get manifest <configmap_helm_name>
+
+   # Create a configmap from a file with Kubernetes
+   $ kb create -f <configfile name>
+
+.. note::
+   A handy reference is the **Sprig** library on GitHub which has a number of useful `GO template functions
+   <http://masterminds.github.io/sprig/>`_ like **upper**, **date**, etc.
+
+.. important::
+   If you create a configmap.yaml file, it has to be in the **templates** directory to get recognized by
+   microk8s Kubernetes
 
 Troubleshooting
 ***************
@@ -131,6 +163,14 @@ Try this from `How to make microk8s work with helm 3
 
 .. important::
    Make sure to change the **microk8s.conf** file permissions to 400 to avoid warnings
+
+Perhaps a simpler option is to just prefix the command with **microk8s**
+
+.. code:: bash
+
+   # Example
+   $ microk8s helm3 <command>
+
 
 
 
