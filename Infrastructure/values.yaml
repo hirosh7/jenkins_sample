@@ -3,12 +3,26 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
+  
+test:
+  costCode: CC123456
+  projectCode: aazzxxyy
 
-costCode: CC123456
-projectCode: aazzxxyy
 infra:
   zone: a,b,c
   region: us-e
+
+mytags:
+  machine: frontdrive
+  rack: 4c
+  drive: ssd
+  vcard: 8g
+
+LangUsed:
+  - Python
+  - Ruby
+  - Java
+  - Scala
 
 image:
   repository: nginx

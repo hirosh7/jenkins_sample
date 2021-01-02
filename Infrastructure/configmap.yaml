@@ -2,14 +2,48 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ .Release.Name}}-configmap
+  labels:
+    helm.sh/chart: "{{ $.Chart.Name }}-{{ $.Chart.Version }}"
+    app.kubernetes.io/instance: "{{ $.Release.Name }}"
+    app.kubernetes.io/version: "{{ $.Chart.AppVersion }}"
+    app.kubernetes.io/managed-by: "{{ $.Release.Service }}"
+  {{- with .Values.mytags }}
+    first: {{ .machine }}
+    second: {{ .rack }}
+    third: {{ .drive }}
+  {{- end }}
+      
+
 data:
   myvalue: "Sample Config Map"
-  costCode: {{ .Values.costCode }}
+  costCode: {{ .Values.test.costCode }}
   Zone: {{ quote  .Values.infra.zone }}
   Region: {{ quote .Values.infra.region }}
-  ProjectCode: {{ upper .Values.projectCode }}
-  pipeline: {{ .Values.projectCode | upper | quote }}
+  ProjectCode: {{ upper .Values.test.projectCode }}
+  pipeline: {{ .Values.test.projectCode | upper | quote }}
   now: {{ now | date "2006-01-02" | quote }}
   contact: {{ .Values.contact | default "1-800-555-5525" | quote }}
+
+  {{- if eq .Values.infra.region "us-e" }}
+  ha: true
+  {{- end }}
+
+  {{- $relname := .Release.Name -}}
+  {{- with .Values.mytags }}
+  Machine Type: {{ .machine | default "NA" | quote }}
+  Rack ID: {{ .rack | quote }}
+  Video Card: {{ .vcard | quote }}
+  Release: {{ $relname }}
+  {{- end }}
+  Lang Used: |-
+    {{- range .Values.LangUsed }}
+    - {{ . | title | quote }}
+    {{- end }}
+  Prog Used: |-
+    {{- range $index, $topping := .Values.LangUsed }}
+    * {{ $index }} : {{ $topping }}
+    {{- end }}
+
+
 
  
