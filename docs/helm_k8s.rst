@@ -20,6 +20,10 @@ Standard Installation
    # Move helm to a central location
    $ mv linux-amd64/helm /usr/local/bin/helm
 
+.. note::
+   I ended up not using either the **Snap** nor **Microk8s** Helm versions. The standard install worked fine with
+   microk8s.
+
 Snap Installation
 *****************
 
@@ -148,6 +152,11 @@ master-course/learn/lecture/20424933#overview>`_
    A handy reference is the **Sprig** library on GitHub which has a number of useful `GO template functions
    <http://masterminds.github.io/sprig/>`_ like **upper**, **date**, etc.
 
+.. note::
+   Similarly you can also reference Helm `Built-in Objects
+   <https://helm.sh/docs/chart_template_guide/builtin_objects/#helm>`_ in your configmap YAML files to reference
+   such things as **Release.Name**, **Release.Namespace**, etc.
+
 .. important::
    If you create a configmap.yaml file, it has to be in the **templates** directory to get recognized by
    microk8s Kubernetes
@@ -156,6 +165,11 @@ Troubleshooting
 ***************
 Error: Kubernetes cluster unreachable
 +++++++++++++++++++++++++++++++++++++
+
+.. note::
+   This is only applicable if you try to use the **Microk8s** version of Helm 3 (e.g.
+   $ microk8s enable helm3
+
 Try this from `How to make microk8s work with helm 3
 <https://worklifenotes.com/2020/01/22/how-to-make-microk8s-work-with-helm/>`_
 
