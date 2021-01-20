@@ -156,3 +156,64 @@ To make Ubuntu do nothing when laptop lid is closed:
    The first time I did this the laptop display blanked out and didn't turn back on even after closing
    and reopening the lid. A reboot brought it back, but I ended up having to do this by SSH'ing into it from
    another laptop.
+
+Setting Up The Ubuntu Firewall
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Details pulled from `here <https://linuxize.com/post/how-to-setup-a-firewall-with-ufw-on-ubuntu-20-04/>`_
+
+Default UFW Policies can be found in **/etc/default/ufw** and can be changed either by
+manually modifying the file or with the **sudo ufw default <policy> <chain>** command
+
+Application profiles are created in the **/etc/ufw/applications.d** directory during the
+installation of the package
+
+.. code:: bash
+
+# Update and install
+sudo apt update
+sudo apt install ufw
+
+# Check status
+sudo ufw status verbose
+
+# List application profiles
+sudo ufw app list
+
+# To get more information about a specific profile and included roles
+sudo ufw app info 'Nginx Full'
+
+# Config UFW to allow SSH Connections
+sudo ufw allow ssh
+
+# Enable UWF
+sudo ufw enable
+
+# Opening Ports
+ufw allow port_number/protocol
+
+# Example 1 - Using a service name found in /etc/services
+sudo ufw allow http
+
+# Example 2 - Using port number and protocol
+# Note: When no protocol is given, UFW creates rules for both TCP and UDP
+sudo ufw allow 80/tcp
+
+# Example 3 - Using Application profile
+sudo ufw allow 'Nginx HTTP'
+
+# Example 4 - Using 'proto' keyword
+sudo ufw allow proto tcp to any port 80
+
+# Example 5 - Specifying port ranges
+# Note: For ranges, you need to specify the protocol explicitly
+sudo ufw allow 7100:7200/tcp
+sudo ufw allow 7100:7200/udp
+
+# Example 6 - Specific IP Address and port
+sudo ufw allow from 64.63.62.61
+sudo ufw allow from 64.63.62.61 to any port 22
+
+
+
+
+
